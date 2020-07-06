@@ -6,4 +6,8 @@ public class Demo {
         float f = 99.22f;
         double d2 = 1.234e2;// 科学计数法表示double
     }
+
+    public void method1(final int j) {
+        //j = 5; //这个能否执行？ 不行
+    }
 }
