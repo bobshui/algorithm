@@ -1,4 +1,4 @@
-package CodeInterview.Questions;
+package codeInterview.questions;
 
 /*
 题目：如下为类型CMYString的声明，请为该类型添加赋值运算符函数。
