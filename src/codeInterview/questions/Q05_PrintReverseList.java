@@ -1,8 +1,10 @@
-package CodeInterview.Questions;
+package codeInterview.questions;
 
 /*
 题目：输入一个链表的头节点，从头到尾反过来打印每个节点的值
  */
+
+import CodeInterview.Questions.P01_LinkList;
 
 import java.util.Stack;
 

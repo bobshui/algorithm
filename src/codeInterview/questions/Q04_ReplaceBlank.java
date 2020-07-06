@@ -1,4 +1,4 @@
-package CodeInterview.Questions;
+package codeInterview.questions;
 
 /*
 题目：请实现一个函数，把字符串中的每个空格替换成"20%"。例如输入"We are happy"，则输出"We20%are20%happy"
