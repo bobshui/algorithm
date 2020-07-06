@@ -9,41 +9,15 @@ import java.util.Stack;
 public class Q05_PrintReverseList {
 
     public static void main(String[] args) {
-        LinkList l0 = new LinkList("l0", null);
-        LinkList l1 = new LinkList("l1", l0);
-        LinkList l2 = new LinkList("l2", l1);
-        LinkList l3 = new LinkList("l3", l2);
+        P01_LinkList l0 = new P01_LinkList("l0", null);
+        P01_LinkList l1 = new P01_LinkList("l1", l0);
+        P01_LinkList l2 = new P01_LinkList("l2", l1);
+        P01_LinkList l3 = new P01_LinkList("l3", l2);
         //solution2(l3);
         solution3(l1, null);
     }
 
-    //定义LinkList
-    //---内部类问题
-    static class LinkList {
-        public String name;
-        public LinkList next; //指向下一个节点
 
-        //构造器
-        public LinkList(String name, LinkList next) {
-            this.name = name;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-            return "LinkList [name=" + name + "]";
-        }
-
-        public void printAll() {
-            System.out.print(this.toString() + "--");
-            LinkList ll = this;
-            while (ll.next != null) {
-                ll = ll.next;
-                System.out.print(ll.toString() + "--");
-            }
-            System.out.println();
-        }
-    }
 
     /**
      * 自己想的一个办法，就是遍历，遍历一个节点就放一个节点到末尾
@@ -52,12 +26,12 @@ public class Q05_PrintReverseList {
      * @param ll 链表的头节点
      * @return 新链表的头节点
      */
-    public static LinkList solution1(LinkList ll) {
+    public static P01_LinkList solution1(P01_LinkList ll) {
         //暂不考虑特殊情况
-        LinkList newhead = ll;
-        LinkList cur = newhead.next;
+        P01_LinkList newhead = ll;
+        P01_LinkList cur = newhead.next;
         newhead.next = null;
-        LinkList temp;
+        P01_LinkList temp;
         while (cur != null) {
             temp = cur.next;
             cur.next = newhead;
@@ -85,8 +59,8 @@ public class Q05_PrintReverseList {
      *
      * @param ll
      */
-    public static void solution2(LinkList ll) {
-        Stack<LinkList> stack = new Stack<>();
+    public static void solution2(P01_LinkList ll) {
+        Stack<P01_LinkList> stack = new Stack<>();
         //暂不考虑特殊情况
         while (ll != null) {
             stack.push(ll);
@@ -94,7 +68,7 @@ public class Q05_PrintReverseList {
         }
         //while(stack.size()>0){，不优秀的遍历
         while (!stack.empty()) {
-            LinkList l = stack.pop();
+            P01_LinkList l = stack.pop();
             System.out.print(l.toString());
         }
     }
@@ -104,12 +78,12 @@ public class Q05_PrintReverseList {
      * 但是调用太深，可能会是个问题
      * @param ll
      */
-    public static void solution3(LinkList ll, LinkList pre) {
+    public static void solution3(P01_LinkList ll, P01_LinkList pre) {
         //暂不考虑特殊情况
         if (ll == null) {
             return;
         }
-        LinkList next = ll.next;
+        P01_LinkList next = ll.next;
         ll.next = pre;
         solution3(next, ll);
     }
