@@ -29,3 +29,44 @@
     >>>	无符号右移（正负号会变化） << 左移 >> 右移
 
 5.控制流程
+    switch可以使用byte,short,int,char,String,enum
+    Java从1.7开始支持switch用String，编译后是把String转化为hash值，其实还是整数
+    1.5开始，for (int i : integers) {}
+    ---深入研究，所谓增强for是否有先进之处？
+    break; 只能结束当前循环，结束外层循环可以，(1)自行设计标志，(2)使用标签
+
+6.数组
+    工具类，arrays
+
+7.类和对象
+    重载，方法名一样，但是参数类型不一样
+    可变参数，public void attack(Hero ...heros)
+        在方法里，使用操作数组的方式处理参数heros即可
+    直接打印对象，会显示该对象在内存中的虚拟地址 ---虚拟地址是什么概念
+    构造方法可以调用构造方法，this()
+    public class Hero {
+        String name; //姓名
+        float hp; //血量
+        float armor; //护甲
+        int moveSpeed; //移动速度
+        //带一个参数的构造方法
+        public Hero(String name){
+            System.out.println("一个参数的构造方法");
+            this.name = name;
+        }
+        //带两个参数的构造方法
+        public Hero(String name,float hp){
+            this(name);
+            System.out.println("两个参数的构造方法");
+            this.hp = hp;
+        }
+        public static void main(String[] args) {
+            Hero teemo =  new Hero("提莫",383);
+        }
+    }
+    作用范围最小原则，数据尽量封装
+                自身      同包子类    不同包子类   同包类     其他类
+    private     访问
+    default     访问      继承                   访问
+    protected   访问      继承          继承      访问
+    public      访问      继承          继承      访问      访问
