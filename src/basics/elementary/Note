@@ -80,4 +80,24 @@
     在类中声明一个方法，这个方法没有实现体，这样的方法就叫抽象方法，使用修饰符“abstract"
     当一个类有抽象方法的时候，该类必须被声明为抽象类抽象方法，抽象类
     ---经典问题，抽象类和接口区别
-    内部类分为四种：非静态内部类，静态内部类，匿名类，本地类
+    内部类分为四种：非静态内部类，静态内部类，匿名类，本地类 ---名堂还比较多，还需要花点时间
+    从JDK 8开始，接口可以提供具体方法，名为默认方法，如default public void func(){...}
+
+9.数字与字符串
+    ---装箱与拆箱的意义是？
+    (1)String str = String.valueOf(i);
+    (2)Integer it = i;String str2 = it.toString();
+    (3)int i= Integer.parseInt(str);
+    字符串，值不能被改变
+    --stringbuilder的源码可以考虑读一下
+
+10.日期
+    日期转字符串
+    SimpleDateFormat sdf1 =new SimpleDateFormat("yyyy-MM-dd" );
+    Date d1= new Date();
+    String str1 = sdf1.format(d1);
+    字符串转日期(可能会抛异常)
+    SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd HH:mm:ss" );
+    String str = "2016/1/5 12:12:12";
+    try {Date d = sdf.parse(str);} ...
+    Calendar
