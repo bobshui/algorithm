@@ -1,3 +1,14 @@
-（面试必备）你真的不想知道从浏览器中输入url, 到最终看到页面内容,这中间都经历了哪些过程吗？？？
-https://blog.csdn.net/char_m/article/details/107262193
+1.深入浅出经典面试题：从浏览器中输入URL到页面加载发生了什么 - Part 1（DNS）
+    https://blog.csdn.net/qq_36178899/article/details/84744177
+    1.为什么要用域名？
+    2.DNS解析的基本流程？
+    3.DNS的根域名是什么，有几个Server？TLD DNS是什么？
+    4.DNS的优化策略是什么？在各个环节怎么做的？Chrome和各个操作系统怎么做的？
+    5.DNS负载均衡是什么，为什么要用？
+    6.DNS的记录类型有哪些？CNAME一般用在哪些场合？举例子说明一下。
+    7.DNS的常用工具和命令有哪些？
+    8.DNS查询是用TCP还是UDP？一般用哪个端口？
+    9.DNS抓包抓过吗？Wireshark有用过吗？
+    10.请说明一下www.google.com 和google.com的区别，如何设置它们的DNS？
+        https://www.sohu.com/a/231664616_100160798
 ---三次握手，四次挥手
