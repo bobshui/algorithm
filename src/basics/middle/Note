@@ -1,0 +1,9 @@
+1.异常处理
+    catch (FileNotFoundException | ParseException e) JDK7支持，但需判断异常类型如下
+    if (e instanceof FileNotFoundException)
+    	System.out.println("d:/xx.exe不存在");
+    Throwable--Error，Exception(RuntimeException/CheckedException必须trycatch)
+    ---catch(Throwable e)是什么用法
+    练习找时间做一下
+2.I/O
+    
