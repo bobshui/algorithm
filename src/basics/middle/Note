@@ -6,3 +6,6 @@
     ---catch(Throwable e)是什么用法
     练习找时间做一下
 2.I/O
+    流就是一系列的数据
+    所有的流，都实现了一个接口叫做 AutoCloseable
+    try-with-resources， 这是从JDK7开始支持的技术，例如try (FileInputStream fis = new FileInputStream(f))
