@@ -11,4 +11,6 @@
     try-with-resources， 这是从JDK7开始支持的技术，例如try (FileInputStream fis = new FileInputStream(f))
     ---需要一个完整的梳理文章
 3.集合框架
-    队列 - Queue
+    先进先出FIFO，队列Queue，先入后出FILO，栈Stack
+    Comparator，Comparable
+4.泛型
