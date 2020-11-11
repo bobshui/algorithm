@@ -12,15 +12,13 @@ public class Solution {
     /**
      *
      * @param head ListNode类
-     * @param k int整型
+     * @param n int整型
      * @return ListNode类
      */
-    public ListNode reverseKGroup (ListNode head, int k) {
-        if(k==1){
-            return head;
-        }
+    public ListNode removeNthFromEnd (ListNode head, int n) {
+        // write code here
+        return head;
     }
-
 
     class ListNode {
         int val;
@@ -33,6 +31,43 @@ public class Solution {
     }
 
 }
+
+//11.链表中的节点每k个一组反转 20201110 牛客
+// * @param head ListNode类
+// * @param k    int整型
+// * @return ListNode类
+// */
+//public ListNode reverseKGroup(ListNode head, int k) {
+//    if (k == 1) {
+//        return head;
+//    }
+//    ListNode tail = null;
+//    ListNode t = head;
+//    int i = k;
+//    while (t != null && i > 0) {
+//        t = t.next;
+//        i--;
+//    }
+//    if (i > 0) {
+//        return head;
+//    }
+//    ListNode next = null, temp = null;
+//    i = k;
+//    while (i > 0) {
+//        if(i==k){
+//            tail = head;
+//        }
+//        temp = head.next;
+//        head.next = next;
+//        next = head;
+//        head = temp;
+//        i--;
+//    }
+//    tail.next = reverseKGroup(head, k);
+//    return next;
+//}
+//
+
 
 //10.跳台阶 20201110 牛客
 //public int JumpFloor(int target) {
@@ -52,7 +87,6 @@ public class Solution {
 //}
 // 递归要考虑到栈的问题
 // 这个方法的问题在于数组占用的空间可能过大，事实上三个变量就可以处理
-
 
 
 //9.求二叉树的层序遍历 20201110 牛客
