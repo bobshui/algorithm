@@ -9,28 +9,110 @@ public class Solution {
 
     }
 
-    /**
-     *
-     * @param head ListNode类
-     * @param n int整型
-     * @return ListNode类
-     */
-    public ListNode removeNthFromEnd (ListNode head, int n) {
-        // write code here
-        return head;
-    }
-
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
 
 }
+
+//14.括号序列 20201113 牛客
+///**
+// * @param s string字符串
+// * @return bool布尔型
+// */
+//public boolean isValid(String s) {
+//    char[] chars = s.toCharArray();
+//    Stack<Character> stack = new Stack<Character>();
+//    for (char c : chars) {
+//        if (c == '{' || c == '[' || c == '(') {
+//            stack.push(c);
+//        } else if (stack.size() == 0) {
+//            return false;
+//        } else if (c == '}') {
+//            if (stack.pop() != '{') {
+//                return false;
+//            }
+//        } else if (c == ']') {
+//            if (stack.pop() != '[') {
+//                return false;
+//            }
+//        } else if (c == ')') {
+//            if (stack.pop() != '(') {
+//                return false;
+//            }
+//        }
+//    }
+//    if(stack.size()==0){
+//        return true;
+//    }
+//    return false;
+//}
+//有一些讨巧一点的写法，但是思路是一致的
+
+
+
+//13.用两个栈实现队列 20201113 牛客
+//Stack<Integer> stack1 = new Stack<Integer>();//用来push
+//Stack<Integer> stack2 = new Stack<Integer>();//用来pop
+//
+//public void push(int node) {
+//    if(stack2.size()>0){
+//        while(stack2.size()>0){
+//            stack1.push(stack2.pop());
+//        }
+//    }
+//    stack1.push(node);
+//}
+//
+//public int pop() {
+//    if(stack2.size()>0){
+//        return stack2.pop();
+//    }
+//    if(stack1.size()==0){
+//        return 0;
+//    }
+//    while(stack1.size()>0){
+//        stack2.push(stack1.pop());
+//    }
+//    return stack2.pop();
+//}
+//其实插入确实是一句话的事情
+
+
+//12.删除链表倒数第n个节点 20201113 牛客
+// / *
+// * @param head ListNode类
+// * @param n int整型
+// * @return ListNode类
+// */
+//public ListNode removeNthFromEnd (ListNode head, int n) {
+//    int count = 0;
+//    ListNode temp = head;
+//    while(temp!=null){
+//        temp = temp.next;
+//        count++;
+//    }
+//    temp =head;
+//    int i= count-n;
+//    if(count==n){
+//        return head.next;
+//    }
+//    while(i-1>0){
+//        temp = temp.next;
+//        i--;
+//    }
+//    temp.next=temp.next.next;
+//    return head;
+//}
+
+//双指针法，知道要这么干，怎么想半天想不到，这道题蠢了
+//class ListNode {
+//    int val;
+//    ListNode next;
+//
+//    ListNode(int x) {
+//        val = x;
+//        next = null;
+//    }
+//}
+
 
 //11.链表中的节点每k个一组反转 20201110 牛客
 // * @param head ListNode类
