@@ -6,7 +6,6 @@ public class Solution {
 
     public static void main(String[] args) {
         int[] arr = {2, 4, 5, 7, 24};
-
     }
 
     /**
