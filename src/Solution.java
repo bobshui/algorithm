@@ -8,8 +8,41 @@ public class Solution {
         int[] arr = {2, 4, 5, 7, 24};
     }
 
-
 }
+
+//todo 15.最长公共子串 20201206 牛客
+///**
+// * longest common substring
+// *
+// * @param str1 string字符串 the string
+// * @param str2 string字符串 the string
+// * @return string字符串
+// */
+//public static String LCS(String str1, String str2) {
+//    // write code here
+//    int l1 = str1.length();
+//    int l2 = str2.length();
+//    int l2_index = 0;
+//    int result = 0;
+//
+//    int[][] t = new int[l1 + 1][l2 + 1];
+//    for (int i = 1; i < l1 + 1; i++) {
+//        for (int j = 1; j < l2 + 1; j++) {
+//            if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
+//                t[i][j] = t[i - 1][j - 1] + 1;
+//                result = t[i][j];
+//                l2_index = j;
+//            } else {
+//                t[i][j] = 0;
+//            }
+//        }
+//    }
+//    if (result == 0) {
+//        return "-1";
+//    }
+//    return str2.substring(l2_index - result, l2_index);
+//}
+//todo 非常典型的动态规划，借此机会研究了一波，但是一直通不过，怀疑是牛客的bug
 
 //14.括号序列 20201113 牛客
 ///**
@@ -44,7 +77,6 @@ public class Solution {
 //    return false;
 //}
 //有一些讨巧一点的写法，但是思路是一致的
-
 
 
 //13.用两个栈实现队列 20201113 牛客
