@@ -5,12 +5,90 @@ import java.util.*;
 public class Solution {
 
     public static void main(String[] args) {
-        int[] arr = {2, 4, 5, 7, 24};
+        int[] arr = {2, 2, 3, 4, 3};
     }
-
 }
 
+//17.找到字符串的最长无重复字符子串 20201207 牛客
+// 想想linkedlist是不是更加优雅，或类似于滑动窗口的处理？不过都是同源的
+///**
+// * @param arr int整型一维数组 the array
+// * @return int整型
+// */
+//public static int maxLength(int[] arr) {
+//    // write code here
+//    HashMap<Integer, Integer> map = new HashMap<>();
+//    int flag = 0;
+//    int result = 0;
+//    int tempresult = 0;
+//    for (int i = 0; i < arr.length; i++) {
+//        if (!map.containsKey(arr[i])) {
+//            tempresult++;
+//            result = Math.max(result, tempresult);
+//        } else {
+//            int a = map.get(arr[i]);
+//            if (a > flag) {
+//                flag = a;
+//            }
+//            tempresult = i - flag;
+//            result = Math.max(result, tempresult);
+//        }
+//        map.put(arr[i], i);
+//    }
+//    return result;
+//}
+
+//16.链表中环的入口节点 20201207 牛客
+//    public ListNode detectCycle(ListNode head) {
+//        if (head == null) {
+//            return null;
+//        }
+//        ListNode slow = head.next;
+//        if (slow == null) {
+//            return null;
+//        }
+//        ListNode fast = head.next.next;
+//        while (fast != slow) {
+//            if (fast == null || fast.next == null) {
+//                return null;
+//            }
+//            fast = fast.next.next;
+//            slow = slow.next;
+//        }
+//        //到这里就确定有环了，计算环的长度
+//        ListNode t = slow.next;
+//        int count = 1;
+//        while (t != slow) {
+//            t = t.next;
+//            count++;
+//        }
+//        fast = slow = head;
+//        while (count-- > 0) {
+//            fast = fast.next;
+//        }
+//        while (fast != slow) {
+//            fast = fast.next;
+//            slow = slow.next;
+//        }
+//        return slow;
+//    }
+//
+//class ListNode {
+//    int val;
+//    ListNode next;
+//
+//    ListNode(int x) {
+//        val = x;
+//        next = null;
+//    }
+//}
+// 没做出来
+// 思路1，方法和我基本一致，但是简便不少。从数学上来说，如将此时两指针分别放在起始位置和相遇位置，并以相同速度前进，当一个指针走完距离a时，
+// 另一个指针恰好走出 绕环n-1圈加上c的距离。故两指针会在环开始位置相遇。
+// 思路2，很有想法。若存在环，则从起点开始，每走一步就删除上一个节点的next指针，最后一个节点就是环的起点。因为环的起点会存在两个next指向它。
+
 //todo 15.最长公共子串 20201206 牛客
+//todo 非常典型的动态规划，借此机会研究学习了一波，但是一直通不过，怀疑是牛客的bug
 ///**
 // * longest common substring
 // *
@@ -42,7 +120,7 @@ public class Solution {
 //    }
 //    return str2.substring(l2_index - result, l2_index);
 //}
-//todo 非常典型的动态规划，借此机会研究了一波，但是一直通不过，怀疑是牛客的bug
+
 
 //14.括号序列 20201113 牛客
 ///**
@@ -134,15 +212,6 @@ public class Solution {
 //}
 
 //双指针法，知道要这么干，怎么想半天想不到，这道题蠢了
-//class ListNode {
-//    int val;
-//    ListNode next;
-//
-//    ListNode(int x) {
-//        val = x;
-//        next = null;
-//    }
-//}
 
 
 //11.链表中的节点每k个一组反转 20201110 牛客
