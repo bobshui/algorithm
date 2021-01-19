@@ -14,3 +14,5 @@
     先进先出FIFO，队列Queue，先入后出FILO，栈Stack
     Comparator，Comparable
 4.泛型
+    如果希望只取出，不插入，就使用? extends Hero
+    如果希望只插入，不取出，就使用? super Hero

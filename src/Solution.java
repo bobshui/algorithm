@@ -5,9 +5,475 @@ import java.util.*;
 public class Solution {
 
     public static void main(String[] args) {
-        int[] arr = {2, 2, 3, 4, 3};
+        int[] a = {2, 1, 5, 3, 6, 4, 8, 9, 7};
+        int b = 90;
+        int[][] matrix = {{2,5},{8,4},{0,-1}};
     }
+
+
+
+
+
 }
+
+//28.容器盛水问题，20210119
+//这题完完全全没有任何思路，双指针不足以看穿这个题目的本质
+////以 3 1 2 5 2 4 为例
+////从左向右扫描，遇到比第一个数大的则构成一个桶，计算盛多少水
+////然后再从右向左扫描一遍
+//public long maxWater (int[] arr) {
+//    if (arr == null || arr.length == 0) {
+//        return 0;
+//    }
+//    int low = 0;
+//    long sum = 0;
+//    long tmp = 0;
+//    //从左向右
+//    for (int i = 0; i < arr.length; i++) {
+//        if (arr[low] > arr[i]) {
+//            tmp = tmp + arr[low] - arr[i];
+//        }
+//        if (arr[low] <= arr[i]) {
+//            sum = sum + tmp;
+//            tmp = 0;
+//            low = i;
+//        }
+//    }
+//    low = arr.length-1;
+//    tmp = 0;
+//    //从右向左
+//    for (int j = arr.length-1; j >= 0; j--) {
+//        if (arr[low] > arr[j]) {
+//            tmp = tmp + arr[low] - arr[j];
+//        }
+//        //注意这里不能再 <=，否则可能会重复计算等于的情况
+//        if (arr[low] < arr[j]) {
+//            sum = sum + tmp;
+//            tmp = 0;
+//            low = j;
+//        }
+//    }
+//    return sum;
+//}
+//
+//public long maxWater (int[] arr) {
+//
+//    if(arr.length == 0 || arr.length <= 2)
+//        return 0;
+//    int left = 0, right = arr.length-1;
+//    long res = 0;
+//    //取低的为边界
+//    int min = Math.min(arr[left],arr[right]);
+//
+//    while(left < right){
+//        if(arr[left] < arr[right]){
+//            left++;
+//            //如果当前水位小于边界，则可以装水
+//            if(arr[left] < min){
+//                res += min-arr[left];
+//            }else{
+//                min = Math.min(arr[left],arr[right]);
+//            }
+//        }else{
+//            right--;
+//            if(arr[right] < min){
+//                res += min-arr[right];
+//            }else{
+//                min = Math.min(arr[right],arr[left]);
+//            }
+//        }
+//    }
+//    return res;
+//}
+
+//27.螺旋矩阵，20201222
+//题目不难，思路也基本准确，但没能做到bug free
+//public ArrayList<Integer> spiralOrder(int[][] matrix) {
+//    ArrayList<Integer> arr = new ArrayList<>();
+//    if (matrix.length == -0 || matrix[0].length == 0)
+//        return arr;
+//    int[] t = matrix[0];
+//    int a = 0;
+//    int b = 0;
+//    int c = matrix.length - 1;
+//    int d = t.length - 1;
+//    while (true) {
+//        for (int i = b; i <= d; i++) {
+//            arr.add(matrix[a][i]);
+//        }
+//        a++;
+//        if (a > c) return arr;
+//        for (int i = a; i <= c; i++) {
+//            arr.add(matrix[i][d]);
+//        }
+//        d--;
+//        if (b > d) return arr;
+//        for (int i = d; i >= b; i--) {
+//            arr.add(matrix[c][i]);
+//        }
+//        c--;
+//        if (a > c) return arr;
+//        for (int i = c; i >= a; i--) {
+//            arr.add(matrix[i][b]);
+//        }
+//        b++;
+//        if (b > d) return arr;
+//    }
+//}
+
+//26.求平方根 20201222
+//二分法是必须要掌握的，另，牛顿逼近法也值得了解
+///**
+// * @param x int整型
+// * @return int整型
+// */
+//public static int sqrt(int x) {
+//    if (x== 0)
+//        return 0;
+//    int left = 1, right = x;
+//    while (true) {
+//        int mid = left + (right - left) / 2;
+//        //这里判断不用if (mid * mid > x)，因为使用mid > x / mid一定会有结果
+//        if (mid > x / mid)
+//            right = mid - 1;
+//        else {
+//            if(mid+1>x/(mid+1))
+//                return mid;
+//            left=mid+1;
+//        }
+//    }
+//}
+
+
+//25.反转字符串 20201222
+//确实弱智，留意下源码的写法
+///**
+// * 反转字符串
+// * @param str string字符串
+// * @return string字符串
+// */
+//public String solve (String str) {
+//    // write code here
+//    return new StringBuilder(str).reverse().toString();
+//}
+
+//24.大数加法 20201221
+// 思路是对的，但是代码太过于繁琐了，参考下下面这个函数的内容
+//public String solve (String s, String t) {
+//    StringBuilder ans = new StringBuilder();
+//    int tmp = 0;
+//    int ls = s.length() -1, lt = t.length()-1;
+//    while (ls >= 0 || lt >= 0 || tmp == 1) {
+//        int l = ls >= 0 ? (s.charAt(ls--) - '0') : 0;
+//        int r = lt >= 0 ? (t.charAt(lt--) - '0') : 0;
+//        int plus = l + r + tmp;
+//        tmp = plus / 10;
+//        char a = (char)(plus % 10 + '0');
+//        ans.append(a);
+//    }
+//    return ans.reverse().toString();
+//}
+//
+//public String solve (String s, String t) {
+//    int l1 = s.length();
+//    int l2 = t.length();
+//    int l = l1>l2?l2:l1;
+//    int flag = 0;
+//    StringBuilder sb = new StringBuilder();
+//    for(int i=0;i<l;i++){
+//        int ls = Integer.parseInt(String.valueOf(s.charAt(l1-i-1)));
+//        int lt = Integer.parseInt(String.valueOf(t.charAt(l2-i-1)));
+//        if(ls+lt+flag>9){
+//            sb.insert(0,ls+lt+flag-10);
+//            flag=1;
+//
+//        }else {
+//            sb.insert(0,ls+lt+flag);
+//            flag=0;
+//
+//        }
+//    }
+//    if(l1==l2){
+//        if(flag==1){
+//            sb.insert(0,1);
+//            return sb.toString();
+//        }
+//        else{
+//            return sb.toString();
+//        }
+//    }
+//    if(l1>l2){
+//        for(int i=l;i<l1;i++){
+//            int ls = Integer.parseInt(String.valueOf(s.charAt(l1-i-1)));
+//            if(ls+flag>9){
+//                sb.insert(0,ls+flag-10);
+//                flag=1;
+//
+//            }else {
+//                sb.insert(0,ls+flag);
+//                flag=0;
+//
+//            }
+//        }
+//    }else{
+//        for(int i=l;i<l2;i++){
+//            int lt = Integer.parseInt(String.valueOf(t.charAt(l2-i-1)));
+//            if(lt+flag>9){
+//                sb.insert(0,lt+flag-10);
+//                flag=1;
+//
+//            }else {
+//                sb.insert(0,lt+flag);
+//                flag=0;
+//
+//            }
+//        }
+//
+//    }
+//    if(flag==1){
+//        sb.insert(0,1);
+//    }
+//    return sb.toString();
+//}
+
+//23.最长递增子序列 20201221 动态规划
+//public static int[] LIS2(int[] arr) {
+//    int[] dp = new int[arr.length];
+//    int end[] = new int[arr.length];
+//    if (arr.length == 0) {
+//        return null;
+//    }
+//    //索引0的长度为1
+//    dp[0] = 1;
+//    end[0] = arr[0];
+//    int length = 1;
+//    for (int i = 1; i < arr.length; i++) {
+//        //放在end后面
+//        if (arr[i] > end[length - 1]) {
+//            end[length] = arr[i];
+//            length++;
+//            dp[i] = length;
+//        } else if (arr[i] == end[length - 1]) {
+//            //长度是相等的，复制长度
+//            dp[i] = length;
+//        } else if (arr[i] < end[length - 1]) {
+//            //二分查找 ， 求出当前i的最长递增子序列，不是所有的最长子序列
+//            // 查找第一个大于该数的位置
+//            int l = 0;
+//            int r = length - 1;
+//            while (l <= r) {
+//                int m = (l + r) / 2;
+//                if (end[m] < arr[i]) {
+//                    l = m + 1;
+//                } else {
+//                    r = m - 1;
+//                }
+//            }
+//            //以索引i结尾的长度为 l + 1
+//            dp[i] = l + 1;
+//            //end存储的是递增序列,替换第一个大于arr[i]的数
+//            end[l] = arr[i];
+//        }
+//    }
+//    //数组初始化
+//    int[] res = new int[length];
+//    for (int i = 0; i < length; i++) {
+//        res[i] = Integer.MAX_VALUE;
+//    }
+//    //反向推出数据，因为最大的数肯定在最后面，
+//    for (int i = dp.length - 1; i >= 0; i--) {
+//        if (dp[i] == length) {
+//            length--;
+//            res[length] = Math.min(res[length], arr[i]);
+//        }
+//    }
+//    return res;
+//}
+
+//22.子数组最大累加和 20201215 动态规划
+/**
+ * max sum of the subarray
+ *
+ * @param arr int整型一维数组 the array
+ * @return int整型
+ */
+//public int maxsumofSubarray(int[] arr) {
+//if (arr.length == 0) {
+//return 0;
+//}
+//int result = arr[0];
+//int sum = arr[0];
+//for (int i = 1; i < arr.length; i++) {
+//sum = Math.max(sum + arr[i], arr[i]);
+//result = Math.max(result, sum);
+//}
+//return result;
+//}
+
+//21.两个链表生成相加链表
+///**
+// * @param head1 ListNode类
+// * @param head2 ListNode类
+// * @return ListNode类
+// */
+//public static ListNode addInList(ListNode head1, ListNode head2) {
+//    // write code here
+//    ListNode rhead1 = ReverseList(head1);
+//    ListNode rhead2 = ReverseList(head2);
+//    ListNode t = new ListNode(0);
+//    ListNode tt = t;
+//    int flag = 0;
+//    while (rhead1 != null || rhead2 != null) {
+//        int c = 0;
+//        if (rhead1 == null) {
+//            c = rhead2.val + flag;
+//            rhead2 = rhead2.next;
+//        } else if (rhead2 == null) {
+//            c = rhead1.val + flag;
+//            rhead1 = rhead1.next;
+//        } else {
+//            c = rhead1.val + rhead2.val + flag;
+//            rhead2 = rhead2.next;
+//            rhead1 = rhead1.next;
+//        }
+//        if (c > 9) {
+//            tt.next = new ListNode(c - 10);
+//            flag = 1;
+//        } else {
+//            tt.next = new ListNode(c);
+//            flag = 0;
+//        }
+//        tt=tt.next;
+//    }
+//    if(flag==0){
+//        tt.next = null;
+//    }else{
+//        tt.next = new ListNode(1);
+//        tt.next.next = null;
+//    }
+//    return ReverseList(t.next);
+//}
+//
+//public static ListNode ReverseList(ListNode head) {
+//    ListNode next = null, temp = null;
+//    while (head != null) {
+//        temp = head.next;
+//        head.next = next;
+//        next = head;
+//        head = temp;
+//    }
+//    return next;
+//}
+
+//class ListNode {
+//    int val;
+//    ListNode next;
+//
+//    ListNode(int x) {
+//        val = x;
+//        next = null;
+//    }
+//}
+//1.想了一个基于字符串直接加减的方式，超时了
+//2.基于链表反转的招数 -- 经查看，是主流招数
+
+//20.最近公共祖先
+//todo 有空可以了解下图论的相关内容 tarjan算法
+///**
+// * @param root TreeNode类
+// * @param o1   int整型
+// * @param o2   int整型
+// * @return int整型
+// */
+//public int lowestCommonAncestor(TreeNode root, int o1, int o2) {
+//    // write code here
+//    return check(root,o1,o2).val;
+//}
+//
+//public TreeNode check(TreeNode root, int o1, int o2) {
+//    if (root == null || root.val == o1 || root.val == o2) {
+//        return root;
+//    }
+//    TreeNode left = check(root.left, o1, o2);
+//    TreeNode right = check(root.right, o1, o2);
+//    if (left != null && right != null)
+//        return root;
+//    else if (left != null)
+//        return left;
+//    else if (right != null)
+//        return right;
+//    else {
+//        return null;
+//    }
+//}
+//
+//class TreeNode {
+//    int val = 0;
+//    TreeNode left = null;
+//    TreeNode right = null;
+//}
+//不使用递归，基于深度搜索，存储父节点也是一种方法
+
+//19.两数之和
+//做过的题目，而且还有比较深的印象
+///**
+// * @param numbers int整型一维数组
+// * @param target  int整型
+// * @return int整型一维数组
+// */
+//public static int[] twoSum(int[] numbers, int target) {
+//    HashMap<Integer, Integer> map = new HashMap<>();
+//    int[] result = new int[]{0, 0};
+//    for (int i = 0; i < numbers.length; i++) {
+//        if (!map.containsKey(target - numbers[i])) {
+//            map.put(numbers[i], i);
+//        } else {
+//            result[0] = map.get(target - numbers[i]) + 1;
+//            result[1] = i + 1;
+//        }
+//    }
+//    return result;
+//}
+
+//18.合并两个有序的数组
+//public void merge(int A[], int m, int B[], int n) {
+//    int l = m + n;
+//    while (l > 0) {
+//        if (m == 0 || A.length == 0) {
+//            A[l - 1] = B[n - 1];
+//            n--;
+//            l--;
+//            continue;
+//        }
+//        if (n == 0 || B.length == 0) {
+//            A[l - 1] = A[m - 1];
+//            m--;
+//            l--;
+//            continue;
+//        }
+//        if (n == 0 || A[m - 1] > B[n - 1]) {
+//            A[l - 1] = A[m - 1];
+//            m--;
+//        } else {
+//            A[l - 1] = B[n - 1];
+//            n--;
+//        }
+//        l--;
+//    }
+//}
+//没能想到从后往前的思路，有更简洁的写法，供参考
+/*
+ * 最优解：从后往前处理,不需要开辟额外空间
+ * Runtime: 0 ms.Your runtime beats 45.38 % of java submissions.
+ */
+//public void merge(int[] nums1, int m, int[] nums2, int n) {
+//    int i = m - 1, j = n - 1, index = m + n - 1;
+//    while (i >= 0 && j >= 0)
+//        nums1[index--] = nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
+//    while (j >= 0)
+//        nums1[index--] = nums2[j--];
+//}
+
 
 //17.找到字符串的最长无重复字符子串 20201207 牛客
 // 想想linkedlist是不是更加优雅，或类似于滑动窗口的处理？不过都是同源的
@@ -73,15 +539,7 @@ public class Solution {
 //        return slow;
 //    }
 //
-//class ListNode {
-//    int val;
-//    ListNode next;
-//
-//    ListNode(int x) {
-//        val = x;
-//        next = null;
-//    }
-//}
+
 // 没做出来
 // 思路1，方法和我基本一致，但是简便不少。从数学上来说，如将此时两指针分别放在起始位置和相遇位置，并以相同速度前进，当一个指针走完距离a时，
 // 另一个指针恰好走出 绕环n-1圈加上c的距离。故两指针会在环开始位置相遇。
@@ -318,11 +776,7 @@ public class Solution {
 //    return result;
 //}
 //
-//public class TreeNode {
-//    int val = 0;
-//    TreeNode left = null;
-//    TreeNode right = null;
-//}
+
 // 思考递归的方法来解决问题
 // 仔细想想，其实一个队列就能够处理了
 
