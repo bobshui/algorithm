@@ -18,11 +18,10 @@
     浮点型 （2种）  float,32  double,64  ---他们的数字范围是如何确认的？
     布尔型（1种）  boolean
     short类型变量使用运算符“+”进行运算时，会转型为int类型。此外，byte和char也存在这种情况。
-    当一个变量被final修饰的时候，该变量只有一次赋值的机会
-    ---那final修饰类和方法的时候呢？
+    final\finally详解 https://blog.csdn.net/qq_42651904/article/details/87708198
 
 4.操作符
-    ---逻辑运算符的先后顺序？需要这么细吗
+    逻辑运算符的先后顺序？（该问题过于八股文，不掌握）http://c.biancheng.net/view/794.html
     异或
         任何数和自己进行异或 都等于 0
         任何数和0 进行异或 都等于自己
@@ -32,7 +31,8 @@
     switch可以使用byte,short,int,char,String,enum
     Java从1.7开始支持switch用String，编译后是把String转化为hash值，其实还是整数
     1.5开始，for (int i : integers) {}
-    ---深入研究，所谓增强for是否有先进之处？
+    深入研究，所谓增强for是否有先进之处？https://blog.csdn.net/qq_24126893/article/details/80437342
+        拓展：迭代器 https://www.cnblogs.com/gzgBlog/p/13605308.html
     break; 只能结束当前循环，结束外层循环可以，(1)自行设计标志，(2)使用标签
 
 6.数组
@@ -70,26 +70,36 @@
     default     访问      继承                   访问
     protected   访问      继承          继承      访问
     public      访问      继承          继承      访问      访问
-    ---关于初始化的顺序
+    关于初始化的顺序 https://www.zhihu.com/question/49196023
 
 8.接口与继承
     子类继承父类的对象方法，重复提供该方法，就叫做方法的重写，override
     隐藏，就是子类覆盖父类的类方法
-    ---多态，还需要看点资料来理解
-    --object类，对应方法，final，
+    多态，还需要看点资料来理解 https://www.cnblogs.com/chenssy/p/3372798.html
+    https://blog.csdn.net/u013317445/article/details/81661178
+    object类，对应方法（还需要自己总结一下）
+    https://blog.csdn.net/ningmengbaby/article/details/80284264
     在类中声明一个方法，这个方法没有实现体，这样的方法就叫抽象方法，使用修饰符“abstract"
     当一个类有抽象方法的时候，该类必须被声明为抽象类抽象方法，抽象类
-    ---经典问题，抽象类和接口区别
-    内部类分为四种：非静态内部类，静态内部类，匿名类，本地类 ---名堂还比较多，还需要花点时间
+    经典问题，抽象类和接口区别（还需要自己总结一下）
+    https://blog.csdn.net/u012092924/article/details/78342193
+    https://www.zhihu.com/question/20149818
+    (JDK8中，Oracle引入默认方法和静态方法，用来减少抽象类和接口的差异，
+    可以在接口中提供默认的实现方法并实现该接口的类不用强制去实现这个方法。JDK8中接口的静态方法只能通过接口名直接去调用，
+    接口中的默认方法因为不是abstract的，所以可重写，也可以不重写。)
+    内部类分为四种：非静态内部类，静态内部类，匿名类，本地类
+    总章https://www.cnblogs.com/chenssy/p/3388487.html
+    匿名内部类https://www.cnblogs.com/cuifc/p/4517446.html
     从JDK 8开始，接口可以提供具体方法，名为默认方法，如default public void func(){...}
 
 9.数字与字符串
-    ---装箱与拆箱的意义是？
+    装箱与拆箱的意义是？https://zhidao.baidu.com/question/306015038512789844.html
+    装箱与拆箱详解https://www.cnblogs.com/wang-yaz/p/8516151.html
     (1)String str = String.valueOf(i);
     (2)Integer it = i;String str2 = it.toString();
     (3)int i= Integer.parseInt(str);
     字符串，值不能被改变
-    --stringbuilder的源码可以考虑读一下
+    stringbuilder的源码可以考虑读一下
 
 10.日期
     日期转字符串
@@ -100,7 +110,9 @@
     SimpleDateFormat sdf =new SimpleDateFormat("yyyy/MM/dd HH:mm:ss" );
     String str = "2016/1/5 12:12:12";
     try {Date d = sdf.parse(str);} ...
-    ---Calendar
+    Calendar
+    https://blog.csdn.net/yx0628/article/details/79317440
+    https://www.cnblogs.com/guanxinjing/p/11607994.html
 
 11.书籍
     effective java

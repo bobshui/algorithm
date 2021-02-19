@@ -5,16 +5,68 @@ import java.util.*;
 public class Solution {
 
     public static void main(String[] args) {
-        int[] a = {2, 1, 5, 3, 6, 4, 8, 9, 7};
-        int b = 90;
-        int[][] matrix = {{2,5},{8,4},{0,-1}};
+        int[] a = {3, 1};
+        //System.out.print(search(a, 1));
     }
 
-
-
-
-
 }
+
+//30.在转动过的有序数组中寻找目标值 20210207
+///**
+// * @param A      int整型一维数组
+// * @param target int整型
+// * @return int整型
+// */
+//public static int search(int[] A, int target) {
+//    int first = 0;
+//    int last = A.length - 1;
+//    while (first <= last) {
+//        int mid = first + (last - first) / 2;
+//        if (A[mid] == target)
+//            return mid;
+//
+//        if (A[first] <= A[mid])//左边有序
+//        {
+//            if (A[first] <= target && target < A[mid])
+//                last = mid - 1;
+//            else
+//                first = mid + 1;
+//        } else//右边有序
+//        {
+//            if (A[mid] < target && target <= A[last])
+//                first = mid + 1;
+//            else
+//                last = mid - 1;
+//        }
+//    }
+//    return -1;
+//}
+//其实差一点点就出来了
+
+
+//29.买卖股票的最好时机，20210207
+///**
+// * @param prices int整型一维数组
+// * @return int整型
+// */
+//public static int maxProfit(int[] prices) {
+//    // write code here
+//    if(prices.length == 0){
+//        return 0;
+//    }
+//    int result = 0;
+//    int min = prices[0];
+//    for (int i : prices) {
+//        if (i - min > result) {
+//            result = i - min;
+//        }
+//        if (i <= min) {
+//            min = i;
+//        }
+//    }
+//    return result;
+//}
+//我的解法还是比较完美，但并没理解到贪心和动态规划的精髓，还需要理解
 
 //28.容器盛水问题，20210119
 //这题完完全全没有任何思路，双指针不足以看穿这个题目的本质
