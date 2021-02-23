@@ -1,12 +1,16 @@
 package basics.elementary.Proxy.Cglib;
 
+import net.sf.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
+
 import java.lang.reflect.Method;
 
 /**
  * Cglib子类代理工厂
  * 对UserDao在内存中动态构建一个子类对象
  */
-public class ProxyFactory implements MethodInterceptor{
+public class ProxyFactory implements MethodInterceptor {
     //维护目标对象
     private Object target;
 
