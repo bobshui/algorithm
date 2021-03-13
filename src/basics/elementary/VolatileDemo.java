@@ -9,6 +9,7 @@ public class VolatileDemo {
 
     public static void main(String[] args) {
         final VolatileDemo demo = new VolatileDemo();
+
         for(int i=0;i<10;i++){
             new Thread(){
                 public void run() {
